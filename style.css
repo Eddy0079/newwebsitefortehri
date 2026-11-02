@@ -1,0 +1,169 @@
+/* Tehri Lake Water Sports & Homestay — mobile-first styles */
+:root {
+  --teal: #0e6e6e;
+  --teal-dark: #0a5252;
+  --sand: #fdf8ef;
+  --ink: #1d2b2b;
+  --muted: #5a6b6b;
+  --line: #dfe9e7;
+  --white: #ffffff;
+  --radius: 14px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--white);
+  line-height: 1.55;
+}
+a { color: var(--teal); }
+img { display: block; max-width: 100%; }
+
+/* Header / sticky nav */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0.7rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.logo { font-weight: 800; font-size: 1.05rem; color: var(--teal-dark); text-decoration: none; }
+.logo span { display: block; font-size: 0.72rem; font-weight: 600; color: var(--muted); }
+.menu-toggle {
+  font-size: 1.5rem;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.15rem 0.6rem;
+  cursor: pointer;
+  color: var(--teal-dark);
+}
+.main-nav { display: none; flex-direction: column; gap: 0.4rem; width: 100%; }
+.main-nav.open { display: flex; }
+.header-inner.wrap-nav { flex-wrap: wrap; }
+.main-nav a { text-decoration: none; color: var(--ink); padding: 0.45rem 0.2rem; font-weight: 600; }
+.main-nav a.nav-cta { color: var(--white); background: var(--teal); border-radius: 999px; text-align: center; padding: 0.5rem 1rem; }
+@media (min-width: 760px) {
+  .menu-toggle { display: none; }
+  .main-nav { display: flex; flex-direction: row; align-items: center; gap: 1.1rem; width: auto; }
+  .logo span { display: inline; font-size: 0.85rem; margin-left: 0.3rem; }
+}
+
+/* Sections */
+.section { max-width: 1080px; margin: 0 auto; padding: 2.5rem 1rem; }
+.section-alt { background: var(--sand); }
+.section h2 { margin: 0 0 0.4rem; font-size: 1.6rem; color: var(--teal-dark); }
+.section-intro { color: var(--muted); margin: 0 0 1.5rem; max-width: 640px; }
+
+/* Hero */
+.hero { position: relative; color: var(--white); overflow: hidden; background: linear-gradient(135deg, #0e6e6e, #123a5c); }
+.hero-media { position: absolute; inset: 0; }
+.hero-media img { width: 100%; height: 100%; object-fit: cover; }
+.hero-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.65)); }
+.hero-media.img-broken::after { background: linear-gradient(135deg, #0e6e6e, #123a5c); }
+.hero-content { position: relative; z-index: 1; max-width: 1080px; margin: 0 auto; padding: 3.5rem 1rem 3rem; }
+.hero-kicker { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.8rem; opacity: 0.9; margin: 0 0 0.6rem; }
+.hero h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 0.8rem; max-width: 640px; }
+.hero-sub { max-width: 640px; opacity: 0.95; }
+.hero-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
+.hero-badges span { background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.35); padding: 0.3rem 0.7rem; border-radius: 999px; font-size: 0.85rem; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.2rem; }
+@media (min-width: 760px) {
+  .hero-content { padding: 5rem 1rem 4rem; }
+  .hero h1 { font-size: 2.8rem; }
+}
+
+/* Buttons */
+.btn { display: inline-block; text-decoration: none; font-weight: 700; padding: 0.7rem 1.2rem; border-radius: 999px; border: none; cursor: pointer; font-size: 1rem; }
+.btn-primary { background: #25d366; color: #06281a; }
+.btn-outline { background: var(--white); color: var(--teal-dark); border: 1px solid var(--white); }
+.btn-ghost { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.6); }
+a.btn-outline { color: var(--teal-dark); }
+
+/* Cards */
+.card-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+@media (min-width: 600px) { .card-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 960px) { .card-grid { grid-template-columns: 1fr 1fr 1fr; } }
+.card { border: 1px solid var(--line); border-radius: var(--radius); padding: 1.2rem; background: var(--white); }
+.card-icon { font-size: 1.8rem; }
+.card h3 { margin: 0.4rem 0 0.3rem; }
+.card p { margin: 0.3rem 0; color: var(--muted); }
+.card .price { color: var(--teal-dark); font-weight: 700; margin-top: 0.7rem; }
+.safety-strip { margin-top: 1.2rem; background: #e6f4f2; border-left: 4px solid var(--teal); padding: 0.9rem 1rem; border-radius: 0 10px 10px 0; }
+
+/* Homestay */
+.homestay-box { border: 1px solid var(--line); border-radius: var(--radius); padding: 1.4rem; background: var(--white); max-width: 720px; }
+.homestay-box .price { color: var(--teal-dark); font-weight: 700; }
+
+/* Visit */
+.visit-grid { display: grid; grid-template-columns: 1fr; gap: 1.2rem; }
+@media (min-width: 760px) { .visit-grid { grid-template-columns: 1fr 1.4fr; } }
+.visit-details p { margin: 0 0 1rem; }
+.map-wrap { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; min-height: 300px; }
+.map-wrap iframe { width: 100%; height: 100%; min-height: 300px; border: 0; }
+
+/* Gallery */
+.gallery-note { color: var(--muted); font-size: 0.9rem; margin: -0.8rem 0 1.2rem; }
+.gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+@media (min-width: 760px) { .gallery-grid { grid-template-columns: 1fr 1fr 1fr; } }
+.gallery-item {
+  position: relative; margin: 0; border-radius: var(--radius); overflow: hidden; cursor: pointer;
+  aspect-ratio: 4 / 3; background: linear-gradient(135deg, #0e6e6e, #123a5c);
+}
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 1; }
+.gallery-item .fallback {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.9); font-size: 0.85rem; text-align: center; padding: 0.5rem;
+}
+.gallery-item figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; margin: 0; padding: 0.45rem 0.6rem;
+  background: rgba(0,0,0,0.55); color: var(--white); font-size: 0.82rem;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.9);
+  display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 0.6rem; padding: 1rem;
+}
+.lightbox[hidden] { display: none; }
+.lightbox img { max-width: 92vw; max-height: 78vh; object-fit: contain; border-radius: 8px; }
+.lightbox p { color: var(--white); margin: 0; }
+.lightbox button { background: rgba(255,255,255,0.15); color: var(--white); border: 1px solid rgba(255,255,255,0.4); border-radius: 50%; width: 44px; height: 44px; font-size: 1.4rem; cursor: pointer; }
+.lightbox-close { position: absolute; top: 1rem; right: 1rem; }
+.lightbox-prev { position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%); }
+.lightbox-next { position: absolute; right: 0.6rem; top: 50%; transform: translateY(-50%); }
+
+/* Accordion */
+.accordion { max-width: 720px; }
+.accordion-item { border: 1px solid var(--line); border-radius: 10px; margin-bottom: 0.6rem; overflow: hidden; }
+.accordion-header { width: 100%; text-align: left; background: var(--white); border: none; padding: 1rem; font-size: 1rem; font-weight: 700; cursor: pointer; color: var(--ink); }
+.accordion-header::after { content: "+"; float: right; color: var(--teal); font-size: 1.2rem; }
+.accordion-header[aria-expanded="true"]::after { content: "−"; }
+.accordion-panel { display: none; padding: 0 1rem 1rem; }
+.accordion-panel.open { display: block; }
+.accordion-panel p { margin: 0; color: var(--muted); }
+
+/* Enquiry form */
+.enquiry-form { max-width: 640px; display: grid; gap: 1rem; }
+.enquiry-form label { font-weight: 600; display: grid; gap: 0.35rem; }
+.enquiry-form input, .enquiry-form select, .enquiry-form textarea {
+  width: 100%; padding: 0.7rem; border: 1px solid var(--line); border-radius: 10px; font-size: 1rem; font-family: inherit;
+}
+.form-note { color: var(--muted); font-size: 0.9rem; margin: 0; }
+
+/* Footer */
+.site-footer { background: var(--teal-dark); color: var(--white); text-align: center; padding: 2rem 1rem; }
+.site-footer a { color: #bfe8e2; }
+.site-footer p { margin: 0.3rem 0; }
+.footer-note { font-size: 0.85rem; opacity: 0.8; }
